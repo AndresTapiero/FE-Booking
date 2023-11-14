@@ -1,0 +1,79 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        google()
+    }
+    dependencies {
+        classpath "net.serenity-bdd:serenity-gradle-plugin:3.1.20"
+        classpath "net.serenity-bdd:serenity-single-page-report:2.1.4"
+        classpath "gradle.plugin.com.github.sherter.google-java-format:google-java-format-gradle-plugin:0.8"
+        classpath "io.freefair.gradle:lombok-plugin:5.1.1"
+    }
+}
+
+plugins {
+    id "net.serenity-bdd.serenity-gradle-plugin" version "4.0.19"
+    id 'java'
+    id 'idea'
+}
+
+defaultTasks 'clean', 'test', 'aggregate'
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    google()
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+dependencies {
+    //SERENITY
+    implementation group: 'net.serenity-bdd', name: 'serenity-core', version: '4.0.19'
+    implementation group: 'net.serenity-bdd', name: 'serenity-junit', version: '4.0.19'
+    implementation group: 'net.serenity-bdd', name: 'serenity-screenplay', version: '4.0.19'
+    testImplementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: '4.0.19'
+    implementation group: 'net.serenity-bdd', name: 'serenity-rest-assured', version: '4.0.19'
+    implementation group: 'io.appium', name: 'java-client', version: '9.0.0'
+
+    testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.24.2'
+    testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '2.0.9'
+    //JSON
+    implementation group: 'com.github.java-json-tools', name: 'json-schema-validator', version: '2.2.14'
+    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+
+}
+
+
+test {
+    testLogging.showStandardStreams = true
+    systemProperties System.getProperties()
+}
+
+serenity {
+    reports = ["single-page-html"]
+}
+gradle.startParameter.continueOnFailure = true
+
+test.finalizedBy(aggregate)
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    maxParallelForks = 1
+}
