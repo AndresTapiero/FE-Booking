@@ -7,6 +7,6 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         plugin = "pretty",
-        features = "src/test/resources/features/fill_form.feature",
+        features = "src/test/resources/features/booking.feature",
         glue = {"org.example.definitions"})
 public class SearchCity {}

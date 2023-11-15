@@ -1,6 +1,5 @@
 package org.example.pages;
 
-import com.google.common.collect.ImmutableList;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
@@ -76,7 +75,6 @@ public class GeneralPageObject extends PageObject {
     }
 
     public String getPageSourceStr() {
-
         return androidDriver.getPageSource();
     }
 

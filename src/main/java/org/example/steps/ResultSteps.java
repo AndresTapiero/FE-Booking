@@ -12,11 +12,17 @@ public class ResultSteps extends GeneralPageObject {
 
 
     @Step
+    public void closeBanner() {
+        resultsPage.closeBanner();
+    }
+    @Step
+    public void selectOption() {
+        resultsPage.selectSecondOption();
+    }
+    @Step
     public void selectRoom() {
-        resultsPage.selectInka();
         resultsPage.selectRoom();
         resultsPage.select();
-
     }
 
     @Step

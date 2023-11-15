@@ -9,7 +9,7 @@ public class AuthPage extends GeneralPageObject {
     @AndroidFindBy(xpath = "//*[contains(@text,'Sign in or create an account')]")
     private WebElementFacade titleAuth;
 
-    @AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Desplazarse hacia arriba\"]")
+    @AndroidFindBy(xpath = "//*[@content-desc='Desplazarse hacia arriba']")
     private WebElementFacade closeButton;
 
 

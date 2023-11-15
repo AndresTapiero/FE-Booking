@@ -11,7 +11,7 @@ public class SearchPage extends GeneralPageObject {
     @AndroidFindBy(id = "com.booking:id/facet_with_bui_free_search_booking_header_toolbar_content")
     private WebElementFacade inputWriteDestine;
 
-    @AndroidFindBy(xpath = "//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]")
+    @AndroidFindBy(xpath = "//androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]")
     private WebElementFacade firstOption;
 
     @AndroidFindBy(id = "com.booking:id/facet_search_box_cta")
