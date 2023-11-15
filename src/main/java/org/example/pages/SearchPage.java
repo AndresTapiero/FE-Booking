@@ -11,33 +11,43 @@ public class SearchPage extends GeneralPageObject {
     @AndroidFindBy(id = "com.booking:id/facet_with_bui_free_search_booking_header_toolbar_content")
     private WebElementFacade inputWriteDestine;
 
-    @AndroidFindBy(xpath = "\t\n" +
-            "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]")
+    @AndroidFindBy(xpath = "//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]")
     private WebElementFacade firstOption;
 
-    @AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Desplazarse hacia arriba\"]")
-    private WebElementFacade closeButton;
-
-    @AndroidFindBy(xpath = "com.booking:id/facet_search_box_cta")
+    @AndroidFindBy(id = "com.booking:id/facet_search_box_cta")
     private WebElementFacade searchButton;
 
+    @AndroidFindBy(id = "com.booking:id/facet_date_picker_confirm")
+    private WebElementFacade selectDateButton;
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc='14 febrero 2024']")
+    private WebElementFacade day1;
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc='28 febrero 2024']")
+    private WebElementFacade day2;
 
     public void clickInputDestine() {
-        inputDestine.click();
+        inputDestine.waitUntilVisible().click();
     }
     public void setDestinationPlace(String place) {
         inputWriteDestine.sendKeys(place);
     }
 
     public void selectFirstOption() {
-        firstOption.click();
+        firstOption.waitUntilVisible().waitUntilClickable().click();
+    }
+
+    public void day() {
+        day1.waitUntilVisible().click();
+        day2.waitUntilVisible().click();
+    }
+
+    public void setSelectDateButton() {
+        selectDateButton.waitUntilVisible().click();
     }
 
     public void clickSearch() {
-        searchButton.click();
+        searchButton.waitUntilVisible().waitUntilClickable().click();
     }
 
-    public void closeButtonGuest() {
-        closeButton.click();
-    }
 }
