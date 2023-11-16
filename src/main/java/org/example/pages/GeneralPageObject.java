@@ -41,7 +41,7 @@ public class GeneralPageObject extends PageObject {
         androidDriver.pressKey(new KeyEvent(AndroidKey.HOME));
     }
 
-    public void scrollDown(int amountScroll) {
+    public void scrollDown(int amountScroll, long timeOfMillis) {
         Dimension dimensions = androidDriver.manage().window().getSize();
         int startX = dimensions.width / 2;
         int startY = (int) (dimensions.height * 0.6);
@@ -50,7 +50,7 @@ public class GeneralPageObject extends PageObject {
         for (int i = 0; i < amountScroll; i++) {
             touchAction
                     .press(PointOption.point(startX, startY))
-                    .waitAction(WaitOptions.waitOptions(Duration.ofMillis(400)))
+                    .waitAction(WaitOptions.waitOptions(Duration.ofMillis(timeOfMillis)))
                     .moveTo(PointOption.point(startX, endY))
                     .release();
             touchActions.performTouchAction(touchAction);
@@ -61,7 +61,7 @@ public class GeneralPageObject extends PageObject {
         setImplicitTimeout(1, ChronoUnit.SECONDS);
         WebElementFacade element = $("//android.view.View[@content-desc='{0}']", id);
         while (!element.isVisible()) {
-            scrollDown(1);
+            scrollDown(1, 400);
         }
 
         resetImplicitTimeout();

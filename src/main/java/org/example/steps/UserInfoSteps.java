@@ -33,7 +33,7 @@ public class UserInfoSteps extends GeneralPageObject {
     @Step
     public void setZipCode() {
         userInfoPage.setInputZipCode();
-        userInfoPage.scrollDown(2);
+        userInfoPage.scrollDown(2, 400);
     }
 
     @Step

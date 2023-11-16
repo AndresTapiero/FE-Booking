@@ -44,6 +44,7 @@ public class BookingDefinition {
         searchSteps.validatePage();
         searchSteps.setDestine();
         searchSteps.selectDays();
+        searchSteps.selectAccommodation();
         searchSteps.clickSearch();
         resultSteps.closeBanner();
         resultSteps.selectOption();
