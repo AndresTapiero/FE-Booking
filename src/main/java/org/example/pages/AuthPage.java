@@ -17,7 +17,7 @@ public class AuthPage extends GeneralPageObject {
     @AndroidFindBy(id = "com.booking:id/identity_terms_conditions")
     private WebElementFacade terms;
 
-    @AndroidFindBy(xpath = "//*[@content-desc='Desplazarse']")
+    @AndroidFindBy(xpath = "//*[@content-desc='Desplazarse hacia arriba']")
     private WebElementFacade closeButton;
 
 

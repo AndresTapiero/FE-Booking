@@ -8,8 +8,6 @@ import org.assertj.core.api.SoftAssertions;
 import org.example.steps.*;
 import org.fluentlenium.core.annotation.Page;
 
-import static org.example.pages.GeneralPageObject.waitTime;
-
 public class BookingDefinition {
 
     SoftAssertions softly = new SoftAssertions();
@@ -53,23 +51,16 @@ public class BookingDefinition {
         userInfoSteps.setUserName();
         userInfoSteps.setLastName();
         userInfoSteps.setEmail();
-
-        //userInfoSteps.setAddress();
-        //userInfoSteps.setZipCode();
-        //userInfoSteps.scrollDown(2);
-        //userInfoSteps.setInputCity();
-        //userInfoSteps.setInputCountry();
-
-
+        userInfoSteps.setAddress();
+        userInfoSteps.setZipCode();
+        userInfoSteps.setInputCity();
+        userInfoSteps.setInputCountry();
         userInfoSteps.setInputPhone();
-
         userInfoSteps.selectRadioButton();
         userInfoSteps.selectContinueButton();
-
         reserveSummarySteps.validateReserve();
         reserveSummarySteps.pressLastStep();
         price = reserveSummarySteps.getPrice();
-
         finishReserveSteps.setCardNumber();
         finishReserveSteps.setExpiration();
     }
@@ -78,8 +69,6 @@ public class BookingDefinition {
     public void validateScreen() {
         finishReserveSteps.comparePrice(price);
         finishReserveSteps.selectReserveButton();
-        waitTime(2);
-        System.out.println("Info View" + resultSteps.getPageSourceStr());
     }
 
 }

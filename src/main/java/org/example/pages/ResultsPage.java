@@ -22,7 +22,7 @@ public class ResultsPage extends GeneralPageObject {
 
 
     public void closeBanner() {
-        if (isVisible(closeBannerButton)) {
+        if (closeBannerButton.isPresent()) {
             closeBannerButton.click();
         }
     }

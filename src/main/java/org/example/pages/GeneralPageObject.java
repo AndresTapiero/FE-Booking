@@ -67,6 +67,7 @@ public class GeneralPageObject extends PageObject {
         resetImplicitTimeout();
     }
 
+    //Use only building and search of the test
     public static void waitTime(Integer totalTime) {
         try {
             Thread.sleep(totalTime * 1000);
@@ -75,6 +76,7 @@ public class GeneralPageObject extends PageObject {
         }
     }
 
+    //Use for extract view
     public String getPageSourceStr() {
         return androidDriver.getPageSource();
     }
@@ -86,7 +88,7 @@ public class GeneralPageObject extends PageObject {
 
     public boolean isVisible(WebElementFacade elementFacade) {
         try {
-            elementFacade.isVisible();
+            elementFacade.isPresent();
         return true;
         } catch(Exception e) {
             return false;

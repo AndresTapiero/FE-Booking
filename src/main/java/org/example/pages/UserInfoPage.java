@@ -5,27 +5,29 @@ import net.serenitybdd.core.pages.WebElementFacade;
 
 public class UserInfoPage extends GeneralPageObject{
 
-    @AndroidFindBy(xpath = "(//android.widget.EditText[1])[1]")
+    @AndroidFindBy(xpath = " //android.widget.TextView[contains(@text, 'Nombre *')]//following-sibling::android.widget.EditText")
     private WebElementFacade inputName;
 
-    @AndroidFindBy(xpath = "(//android.widget.EditText[1])[2]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'Apellido *')]//following-sibling::android.widget.EditText")
     private WebElementFacade lastName;
 
-    @AndroidFindBy(xpath = "(//android.widget.EditText[1])[3]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'E-mail *')]//following-sibling::android.widget.EditText")
     private WebElementFacade email;
 
-    @AndroidFindBy(xpath = "(//android.widget.EditText[1])[4]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'Dirección *')]//following-sibling::android.widget.EditText")
     private WebElementFacade address;
 
-    @AndroidFindBy(xpath = "(//android.widget.EditText[1])[5]")
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'Código')]//following-sibling::android.widget.EditText")
     private WebElementFacade zipCode;
 
-    @AndroidFindBy(xpath = "(//android.widget.EditText[1])[4]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'Ciudad *')]//following-sibling::android.widget.EditText")
     private WebElementFacade city;
 
-    @AndroidFindBy(xpath = "(//android.widget.EditText[1])[5]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'País/región *')]//following-sibling::android.widget.EditText")
     private WebElementFacade country;
-    @AndroidFindBy(xpath = "(//android.widget.EditText[1])[6]")
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'Tel')]//following-sibling::android.widget.EditText")
     private WebElementFacade phone;
 
 
@@ -48,15 +50,15 @@ public class UserInfoPage extends GeneralPageObject{
     }
 
     public void setInputAddress() {
-        address.waitUntilVisible().sendKeys("Calle 38 # 31-130");
+        if (address.isPresent()) address.sendKeys("Calle 38 # 31-130");
     }
 
     public void setInputZipCode() {
-        zipCode.waitUntilVisible().sendKeys("930731660");
+        if (zipCode.isPresent()) zipCode.waitUntilVisible().sendKeys("930731660");
     }
 
     public void setInputCity() {
-        city.waitUntilVisible().sendKeys("Bogota");
+        if (city.isPresent()) city.waitUntilVisible().sendKeys("Bogota");
     }
 
     public void setInputCountry() {

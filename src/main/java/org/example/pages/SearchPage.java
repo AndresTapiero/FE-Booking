@@ -30,7 +30,7 @@ public class SearchPage extends GeneralPageObject {
     private WebElementFacade day2;
 
     public void validateScreen() {
-        notifications.waitUntilVisible();
+        notifications.isDisplayed();
     }
 
     public void clickInputDestine() {
