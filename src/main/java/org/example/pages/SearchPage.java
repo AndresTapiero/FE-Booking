@@ -5,6 +5,9 @@ import net.serenitybdd.core.pages.WebElementFacade;
 
 public class SearchPage extends GeneralPageObject {
 
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc='Notificaciones']")
+    private WebElementFacade notifications;
+
     @AndroidFindBy(id = "com.booking:id/facet_search_box_accommodation_destination")
     private WebElementFacade inputDestine;
 
@@ -25,6 +28,10 @@ public class SearchPage extends GeneralPageObject {
 
     @AndroidFindBy(xpath = "//android.view.View[@content-desc='28 febrero 2024']")
     private WebElementFacade day2;
+
+    public void validateScreen() {
+        notifications.waitUntilVisible();
+    }
 
     public void clickInputDestine() {
         inputDestine.waitUntilVisible().click();

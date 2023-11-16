@@ -5,7 +5,7 @@ import org.example.pages.SearchPage;
 import org.fluentlenium.core.annotation.Page;
 
 import static org.example.utilities.Constants.CUSCO;
-import static org.example.utilities.Constants.INITIAL_DATE;
+import static org.example.utilities.Constants.FINISH_DATE;
 
 public class SearchSteps {
 
@@ -14,7 +14,12 @@ public class SearchSteps {
 
 
     @Step
-    public void setData() {
+    public void validatePage() {
+        searchPage.validateScreen();
+    }
+
+    @Step
+    public void setDestine() {
         searchPage.clickInputDestine();
         searchPage.setDestinationPlace(CUSCO.getValue());
         searchPage.selectFirstOption();
@@ -22,7 +27,7 @@ public class SearchSteps {
 
     @Step
     public void selectDays() {
-        searchPage.scrollToElement(INITIAL_DATE.getValue());
+        searchPage.scrollToElement(FINISH_DATE.getValue());
         searchPage.day();
         searchPage.setSelectDateButton();
     }

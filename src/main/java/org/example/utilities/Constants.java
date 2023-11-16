@@ -2,8 +2,15 @@ package org.example.utilities;
 
 public enum Constants {
 
+    TITLE_AUTH_PAGE("Inicia sesión o crea una cuenta"),
     CUSCO("CUSCO"),
-    INITIAL_DATE("14 febrero 2024");
+    FINISH_DATE("28 febrero 2024"),
+
+    ENTER("Entrada"),
+
+    EXIT("Salida"),
+
+    CARD_NUMBER_INVALID("El número de tarjeta no es válido");
     private String value;
 
     Constants(String value) {
