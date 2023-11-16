@@ -13,9 +13,8 @@ public class AuthSteps extends GeneralPageObject {
         authPage.closeButtonGuest();
     }
 
-    public void validTitle() {
+    public void validAuthPage() {
        authPage.validatePage();
     }
-
 
 }

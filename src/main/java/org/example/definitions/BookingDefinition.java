@@ -27,18 +27,21 @@ public class BookingDefinition {
     @Steps
     FinishReserveSteps finishReserveSteps;
 
+    @Steps
+    ReserveSteps reserveSteps;
+
     private String price;
 
     @Dado("Que estoy en la pagina principal de Booking")
     public void navigateToSearchView() {
-        authSteps.validTitle();
+        authSteps.validAuthPage();
         authSteps.pressCloseButton();
-        searchSteps.validatePage();
     }
 
 
     @Cuando("ingrese los datos de busqueda seleccionando habitacion")
     public void fillDatesAndSelectRoom() {
+        searchSteps.validatePage();
         searchSteps.setDestine();
         searchSteps.selectDays();
         searchSteps.clickSearch();
@@ -77,6 +80,23 @@ public class BookingDefinition {
     @Entonces("podre ver el mensaje de error")
     public void validateEnterDestine() {
         searchSteps.validateAlertError();
+    }
+
+    @Dado("Que estoy en la pagina reservas")
+    public void navigateToReserve() {
+        authSteps.pressCloseButton();
+        reserveSteps.selectMenuReserve();
+    }
+
+    @Cuando("presione iniciar sesión")
+    public void pressLogin() {
+        reserveSteps.validateReserveScreen();
+        reserveSteps.selectLoginButton();
+    }
+
+    @Entonces("Entonces veré la pantalla de Iniciar sesión")
+    public void validateAuthPageLogin() {
+        authSteps.validAuthPage();
     }
 
 }
