@@ -36,4 +36,9 @@ public class SearchSteps {
     public void clickSearch() {
         searchPage.clickSearch();
     }
+
+    @Step
+    public void validateAlertError() {
+        searchPage.alertError();
+    }
 }

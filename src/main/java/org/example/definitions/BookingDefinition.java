@@ -4,13 +4,11 @@ import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import net.serenitybdd.annotations.Steps;
-import org.assertj.core.api.SoftAssertions;
 import org.example.steps.*;
 import org.fluentlenium.core.annotation.Page;
 
 public class BookingDefinition {
 
-    SoftAssertions softly = new SoftAssertions();
     @Page
     AuthSteps authSteps;
 
@@ -69,6 +67,16 @@ public class BookingDefinition {
     public void validateScreen() {
         finishReserveSteps.comparePrice(price);
         finishReserveSteps.selectReserveButton();
+    }
+
+    @Cuando("seleccione buscar sin ingresar un destino")
+    public void selectSearch() {
+        searchSteps.clickSearch();
+    }
+
+    @Entonces("podre ver el mensaje de error")
+    public void validateEnterDestine() {
+        searchSteps.validateAlertError();
     }
 
 }

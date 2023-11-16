@@ -10,7 +10,9 @@ public enum Constants {
 
     EXIT("Salida"),
 
-    CARD_NUMBER_INVALID("El número de tarjeta no es válido");
+    CARD_NUMBER_INVALID("El número de tarjeta no es válido"),
+
+    ALERT_ERROR("Por favor, introduce tu destino");
     private String value;
 
     Constants(String value) {

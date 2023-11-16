@@ -2,6 +2,9 @@ package org.example.pages;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.junit.Assert;
+
+import static org.example.utilities.Constants.ALERT_ERROR;
 
 public class SearchPage extends GeneralPageObject {
 
@@ -29,6 +32,13 @@ public class SearchPage extends GeneralPageObject {
     @AndroidFindBy(xpath = "//android.view.View[@content-desc='28 febrero 2024']")
     private WebElementFacade day2;
 
+    @AndroidFindBy(id = "com.booking:id/message")
+    private WebElementFacade alertError;
+
+    @AndroidFindBy(id = "com.booking:id/button_positive")
+    private WebElementFacade okButton;
+
+
     public void validateScreen() {
         notifications.isDisplayed();
     }
@@ -55,6 +65,11 @@ public class SearchPage extends GeneralPageObject {
 
     public void clickSearch() {
         searchButton.waitUntilVisible().waitUntilClickable().click();
+    }
+
+    public void alertError() {
+        Assert.assertEquals(ALERT_ERROR.getValue(), alertError.waitUntilVisible().getText());
+        okButton.waitUntilVisible().click();
     }
 
 }
