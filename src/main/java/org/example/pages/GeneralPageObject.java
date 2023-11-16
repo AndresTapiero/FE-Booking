@@ -9,6 +9,7 @@ import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.serenitybdd.core.pages.WebElementState;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.steps.StepInterceptor;
 import org.openqa.selenium.Dimension;
@@ -62,7 +63,7 @@ public class GeneralPageObject extends PageObject {
         while (!element.isVisible()) {
             scrollDown(1);
         }
-        scrollDown(1);
+
         resetImplicitTimeout();
     }
 
@@ -76,6 +77,20 @@ public class GeneralPageObject extends PageObject {
 
     public String getPageSourceStr() {
         return androidDriver.getPageSource();
+    }
+
+    public WebElementState validateTextElement(String text) {
+        return $("//android.widget.TextView[contains(@text,'{0}')]", text);
+    }
+
+
+    public boolean isVisible(WebElementFacade elementFacade) {
+        try {
+            elementFacade.isVisible();
+        return true;
+        } catch(Exception e) {
+            return false;
+        }
     }
 
 }

@@ -21,10 +21,8 @@ public class ResultsPage extends GeneralPageObject {
     private WebElementFacade reserveButton;
 
 
-//Reserva ahora
-
     public void closeBanner() {
-        if (closeBannerButton.isClickable()) {
+        if (isVisible(closeBannerButton)) {
             closeBannerButton.click();
         }
     }
