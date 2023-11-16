@@ -1,7 +1,7 @@
 #language: es
   Característica: Como usuario quiero ingresar datos para realizar una busqueda
 
-    Escenario: Ingresar los datos para busqueda del servicio
-      Dado que estoy en el Search de Booking
-      Cuando ingrese los datos y busque
-      Entonces podre ver los resultados de alojamiento
+    Escenario: Como usuario de Booking quiero encontrar en donde hospedarme en Cusco
+      Dado Que estoy en la pagina principal de Booking
+      Cuando ingrese los datos de busqueda seleccionando habitacion
+      Entonces podre ver el precio del alojamiento seleccionado
