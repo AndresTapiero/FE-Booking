@@ -27,9 +27,6 @@ public class BookingDefinition {
     @Steps
     FinishReserveSteps finishReserveSteps;
 
-    @Steps
-    ReserveSteps reserveSteps;
-
     private String price;
 
     @Dado("Que estoy en la pagina principal de Booking")
@@ -37,7 +34,6 @@ public class BookingDefinition {
         authSteps.validAuthPage();
         authSteps.pressCloseButton();
     }
-
 
     @Cuando("ingrese los datos de busqueda seleccionando habitacion")
     public void fillDatesAndSelectRoom() {
@@ -61,9 +57,7 @@ public class BookingDefinition {
         userInfoSteps.selectRadioButton();
         userInfoSteps.selectContinueButton();
         reserveSummarySteps.validateReserve();
-
         reserveSummarySteps.pressLastStep();
-
         price = reserveSummarySteps.getPrice();
         finishReserveSteps.setCardNumber();
         finishReserveSteps.setExpiration();
@@ -73,33 +67,6 @@ public class BookingDefinition {
     public void validateScreen() {
         finishReserveSteps.comparePrice(price);
         finishReserveSteps.selectReserveButton();
-    }
-
-    @Cuando("seleccione buscar sin ingresar un destino")
-    public void selectSearch() {
-        searchSteps.clickSearch();
-    }
-
-    @Entonces("podre ver el mensaje de error")
-    public void validateEnterDestine() {
-        searchSteps.validateAlertError();
-    }
-
-    @Dado("Que estoy en la pagina reservas")
-    public void navigateToReserve() {
-        authSteps.pressCloseButton();
-        reserveSteps.selectMenuReserve();
-    }
-
-    @Cuando("presione iniciar sesión")
-    public void pressLogin() {
-        reserveSteps.validateReserveScreen();
-        reserveSteps.selectLoginButton();
-    }
-
-    @Entonces("Entonces veré la pantalla de Iniciar sesión")
-    public void validateAuthPageLogin() {
-        authSteps.validAuthPage();
     }
 
 }
