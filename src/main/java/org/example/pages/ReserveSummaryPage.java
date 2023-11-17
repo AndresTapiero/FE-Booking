@@ -21,7 +21,7 @@ public class ReserveSummaryPage extends GeneralPageObject{
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'US$')]")
     private WebElementFacade price;
 
-    @AndroidFindBy(xpath = "(//android.widget.Button)[2]")
+    @AndroidFindBy(xpath = "(//*[@resource-id='com.booking:id/action_button'])[1]")
     private WebElementFacade lastStepButton;
 
     SoftAssertions softly = new SoftAssertions();

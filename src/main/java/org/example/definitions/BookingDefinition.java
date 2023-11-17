@@ -61,7 +61,9 @@ public class BookingDefinition {
         userInfoSteps.selectRadioButton();
         userInfoSteps.selectContinueButton();
         reserveSummarySteps.validateReserve();
+
         reserveSummarySteps.pressLastStep();
+
         price = reserveSummarySteps.getPrice();
         finishReserveSteps.setCardNumber();
         finishReserveSteps.setExpiration();

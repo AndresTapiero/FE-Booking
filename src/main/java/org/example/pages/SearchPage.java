@@ -98,7 +98,7 @@ public class SearchPage extends GeneralPageObject {
         addButtonChildren.waitUntilVisible().click();
         agePicker.waitUntilVisible();
         while (!Objects.equals(numberPicker.getText(), FIVE_YEARS.getValue())) {
-            scrollDown(1, 900);
+            scrollDown(1, 700);
         }
        okButtonAlert.waitUntilVisible().click();
         Assert.assertEquals(BOY.getValue(), tvChildAge.waitUntilVisible().getText());

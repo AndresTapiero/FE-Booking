@@ -17,6 +17,9 @@ public class ResultsPage extends GeneralPageObject {
     @AndroidFindBy(id = "com.booking:id/rooms_item_select_layout")
     private WebElementFacade selectButton;
 
+    @AndroidFindBy(xpath = "//android.widget.Button[@resource-id='com.booking:id/recommended_block_reserve_button']")
+    private WebElementFacade selectThisReserveButton;
+
     @AndroidFindBy(xpath = "//android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.Button")
     private WebElementFacade reserveButton;
 
@@ -36,10 +39,14 @@ public class ResultsPage extends GeneralPageObject {
     }
 
     public void select() {
-        selectButton.waitUntilVisible().click();
+        if (selectButton.isPresent()) {
+            selectButton.waitUntilVisible().click();
+        } else {
+            selectThisReserveButton.waitUntilVisible().click();
+        }
     }
 
     public void selectReserveButton() {
-        reserveButton.waitUntilVisible().click();
+        if (reserveButton.isPresent()) reserveButton.waitUntilVisible().click();
     }
 }

@@ -9,4 +9,4 @@ import org.junit.runner.RunWith;
         plugin = "pretty",
         features = "src/test/resources/features/booking.feature",
         glue = {"org.example.definitions"})
-public class SearchCity {}
+public class Booking {}

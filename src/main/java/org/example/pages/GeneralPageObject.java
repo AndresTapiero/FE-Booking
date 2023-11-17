@@ -37,10 +37,6 @@ public class GeneralPageObject extends PageObject {
         touchActions = androidDriver;
     }
 
-    public void closeApp() {
-        androidDriver.pressKey(new KeyEvent(AndroidKey.HOME));
-    }
-
     public void scrollDown(int amountScroll, long timeOfMillis) {
         Dimension dimensions = androidDriver.manage().window().getSize();
         int startX = dimensions.width / 2;
@@ -78,6 +74,7 @@ public class GeneralPageObject extends PageObject {
 
     //Use for extract view
     public String getPageSourceStr() {
+        System.out.println(androidDriver.getPageSource());
         return androidDriver.getPageSource();
     }
 
