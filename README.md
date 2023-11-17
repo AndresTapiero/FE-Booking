@@ -1,7 +1,10 @@
 # Hello and Welcome To Booking Automation Test.
 
 This project have Cucumber + POM with Serenity as a reference.  You can find the following packages.
-
+* Definitions
+* pages
+* steps
+* utilities
 
 # Considerations:
 * It's necessary to have previously installed the Booking application.https://drive.google.com/file/d/1ruY_5qcqWlsE3-W3rgXpFyyMiO59wFUc/view
