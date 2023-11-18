@@ -20,9 +20,9 @@ public class SearchSteps extends GeneralPageObject {
     }
 
     @Step
-    public void setDestine() {
+    public void setDestine(String destine) {
         searchPage.clickInputDestine();
-        searchPage.setDestinationPlace(CUSCO.getValue());
+        searchPage.setDestinationPlace(destine);
         searchPage.selectFirstOption();
     }
 

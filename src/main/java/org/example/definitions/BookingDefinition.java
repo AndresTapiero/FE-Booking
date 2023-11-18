@@ -35,10 +35,10 @@ public class BookingDefinition {
         authSteps.pressCloseButton();
     }
 
-    @Cuando("ingrese los datos de busqueda seleccionando habitacion")
-    public void fillDatesAndSelectRoom() {
+    @Cuando("ingrese los datos de busqueda {string} y complete el flujo de reserva")
+    public void fillDatesAndSelectRoom(String destine) {
         searchSteps.validatePage();
-        searchSteps.setDestine();
+        searchSteps.setDestine(destine);
         searchSteps.selectDays();
         searchSteps.selectAccommodation();
         searchSteps.clickSearch();
